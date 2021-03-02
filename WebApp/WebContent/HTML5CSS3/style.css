@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+/*링크 스타일*/
+a:link{text-decoration:none; color:gray;} /*링크 상태일때*/
+a:visited{text-decoration:none; color:gray;}/*방문 했을때*/
+a:hover{text-decoration:none; font-weight:bold; color:gray;}/*마우스 올렸을때*/
+a:active{text-decoration:underline; color:red;}/*마우스를 누르고 있을때*/

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width:500px; height:100px; margin: 50px; font-size: 3em;
+        border: 1px solid gray; text-align: center; line-height: 100px;
+    }
+    /*박스에 그림자 설정*/
+    div:first-child{
+        /*      왼쪽,오른쪽    위쪽,아래쪽    투명도    그림자색상    */
+        box-shadow: 10px 10px 10px gray;
+    }
+    /*글자에 그림자 설정*/
+    div:nth-last-of-type(2){
+        text-shadow: 5px 5px 5px green;
+    }
+    /*
+        그라데이션 설정
+        https://www.colorzilla.com/gradient-editor/
+    */
+    div:last-child{
+        width: 100%;
+        height: 700px;
+        font-size: 2em;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#b3dced+0,72145c+50,bce0ee+100 */
+        background: rgb(179,220,237); /* Old browsers */
+        background: -moz-linear-gradient(-45deg, rgba(179,220,237,1) 0%, rgba(114,20,92,1) 50%, rgba(188,224,238,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(179,220,237,1) 0%,rgba(114,20,92,1) 50%,rgba(188,224,238,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(179,220,237,1) 0%,rgba(114,20,92,1) 50%,rgba(188,224,238,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+</style>
+<body>
+    <div>
+        박스에 그림자 설정
+    </div>
+    <div>
+        글자에 그림자 설정
+    </div>
+    <div>
+        민경원 우리은행 연구원은 “파월 의장은 시장의 인플레이션 공포를 진화하고 채권 매입 프로그램을 유지하겠다는 기존 입장을 재확인했다”며 “이에 뉴욕증시가 상승 전환에 성공하면서 대규모 외국인 순매도 여파로 고전하던 국내 증시도 반등할 가능성이 높다”고 밝혔다. 이어 “코스피 지수 상승은 역외 숏플레이(달러 매도)를 유인하는 재료이기 때문에 월말 네고물량과 함께 환율 하락을 이끄는 동력이 될 것”이라고 덧붙였다.
+    </div>
+</body>
+</html>

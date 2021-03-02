@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function mathTest(){
+            var tag = "<ul>";
+            
+            var num = 123.5687;
+            
+            tag += "<li>PI="+Math.PI + "</li>";
+            tag += "<li>pow="+Math.pow(5,3)+"</li>";
+            tag += "<li>round="+Math.round(num, 2)+"</li>";
+            tag += "<li>sqrt="+Math.sqrt(10)+"</li>";
+            tag += "<li>abs="+Math.abs(-20)+"</li>";
+            tag += "<li>ceil="+Math.ceil(num)+"</li>"; //올림
+            tag += "<li>floor="+Math.floor(num)+"</li>";//버림
+            
+            tag += "<li>max="+Math.max(58,69,15,26,874,685,2888)+"</li>";
+            tag += "<li>min="+Math.min(58,69,15,26,874,685,2888)+"</li>";
+            
+            //                  정수화(난수*(큰수-작은수+1))+작은수 
+            tag += "<li>random="+Math.random()+"</li>";
+            
+            document.getElementById("view").innerHTML = tag + "</ul>";
+            
+            
+        }
+    </script>
+</head>
+<body onload="mathTest()">
+    <div id="view">
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        //계산가능
+        //연산자 : +, -, *, /, %, >, <, >=, <=, !=, ==, +=, -= ...... ++, --,,,, &&, ||, !
+        
+        //명령어 : if문, if~else문, for, while, switch, do~while, break, continue
+        
+        var str = 'hong'; // "hong" 또는 'hong'
+        var n = 1234;
+        var n2 = 12.23;
+        
+        //함수정의
+        //페이지 로딩시에 실행하지 않는다.
+        function gugudan(){
+            var dan = document.getElementById("num").value;
+        
+            //구구단......
+            var r = "";
+            for(var i=2; i<=9; i++){
+                r += dan+"*"+i+"="+(dan*i)+"<br/>";
+            }
+            document.getElementById("result").innerHTML = r;
+            document.getElementById("num").value = "";
+        }
+        function plus(){
+            //문자를 숫자로 바꾸기
+            var n1 = parseInt(document.getElementById("num").value);
+            var n2 = parseInt(document.getElementById("num2").value);
+            
+            //연산자가 +이면 값을 정수로 바꿔줘야한다.
+            var result = n1 + n2;
+            document.getElementById("result").innerHTML = result;
+        }
+        function imageChange(){
+            document.getElementById("i").src="../img/BannerImage1.jpg";
+        }
+        function change(){
+            document.getElementById("i").src="../img/0.jpg";
+        }
+        function welcome(){
+            alert("홈페이지에 오신것을 환영합니다.");
+        }
+        // 함수호출
+        // welcome();
+    </script>
+</head>
+<body onload="welcome()"> <!--바디가 로딩이 되면 onload(js 이벤트)가 실행된다.-->
+    수 : <input type="text" id="num"/>
+    수 : <input type="text" id="num2"/>
+    <input type="button" value="구구단" onclick="gugudan()"/>
+    <input type="button" value="더하기" onclick="plus()"/>
+    <div id="result"></div>
+    <script>
+        //document.getElementById("result").innerHTML = r;
+    </script>
+    <img src="../img/0.jpg" alt="" id="i" onmouseover="imageChange()" onmouseout="change()"/><br/>
+    // this = this라는 태그가 있는 객체 즉 여기에서 this는 img다
+    <img src="../img/BannerImage1.jpg" alt="" id="i" onmouseover="this.src='../img/BannerImage2.jpg'" onmouseout="this.src='../img/BannerImage1.jpg'"/>
+</body>
+</html>

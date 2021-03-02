@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function stringTest(){
+            //        0 123 4 5678
+            var txt = "자바스크립트에서 문자열 사용하는 방법...";
+            document.write("txt->", txt);
+            document.write("<br/>length->", txt.length);
+            document.write("<br/>indexOf->", txt.indexOf("문"));
+            document.write("<br/>search->", txt.search("문자열"));
+            
+            // 문자열 일부 처리 : slice, substring, substr
+            document.write("<br/>slice->", txt.slice(2,7)); //index 2부터 7앞까지 (index, index)
+            document.write("<br/>substring->", txt.substring(2,7)); //index 2부터 7앞까지 (index, index)
+            document.write("<br/>substr->", txt.substr(2,5)); // index 2부터 5개 문자선택 (index, 갯수) 
+            
+            document.write("<br/>replace->", txt.replace("스크립트","Script"));
+            
+            var txt2 = "Hello, JavaScript...";
+            document.write("<br/>toUpperCase->", txt2.toUpperCase());
+            document.write("<br/>toLowerCase->", txt2.toLowerCase());
+            
+            document.write("<br/>concat->", txt.concat(txt2));
+            document.write("<br/>charAt->", txt2.charAt(2));
+            document.write("<br/>charCodeAt->", txt2.charCodeAt(0));
+            
+            var arr = txt2.split('a'); //arr[0], arr[1], arr[2]
+            document.write("<br/>split->", arr[0], ',', arr[1], ',', arr[2]);
+            
+            var arr = txt2.split('a'); 
+            for(var i=0; i<arr.length; i++) {
+                document.write("<br/>", "["+arr[i]+"]");
+            }
+        }
+        stringTest();
+    </script>
+</head>
+<body>
+    <img src="../img/BannerImage3.jpg" alt="">
+</body>
+</html>

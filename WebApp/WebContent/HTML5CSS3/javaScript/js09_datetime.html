@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>날짜 객체</title>
+    <script>
+        var dateTime = new Date(); //현재날짜, 시간
+        var dateTime2 = new Date("2021.05.10"); // "2021/06/07" "2021-08-09" 이거도 가능
+        var dateTime3 = new Date(5646845614531354); //정수는 밀리초 : 1970년 1월 1일 0시 0분 0초부터 출발
+        
+        document.write("datetime="+dateTime);
+        document.write("<br/>datetime2="+dateTime2);
+        document.write("<br/>datetime3="+dateTime3);
+        
+        /*
+            년 : getFullYear(), 월 : getMonth(),      일 : getDate()
+            시 : getHours()     분 : getMinutes()     초 : getSeconds();
+            요일 : getDay() 일요일 : 0, 월요일 : 1, ......토요일:6
+        */
+        var timeTxt = dateTime.getFullYear()+"년";
+        timeTxt += (dateTime.getMonth()+1)+"월";
+        timeTxt += dateTime.getDate()+"일";
+        timeTxt += dateTime.getHours()+":" + dateTime.getMinutes() +":" + dateTime.getSeconds();
+        
+        document.write("<br/>", timeTxt);
+        document.write("<br/>요일-->"+dateTime.getDay());
+        
+        //마지막날
+        var lastdate = new Date(dateTime.getFullYear(), dateTime.getMonth()+1, 0); //다음달 0일을 하게되면 그 전달 마지막날이 리턴된다.
+        document.write("<br/>마지막날-->"+lastdate.getDate());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

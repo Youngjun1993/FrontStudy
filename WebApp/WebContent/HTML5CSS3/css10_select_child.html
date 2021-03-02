@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>후손, 자손 선택자</title>
+<style>
+	/*자손 선택자*/
+	div>ul{
+		background-color:yellow;
+	}
+	/*후손 선택자*/
+	div h2{
+		color:green;
+	}
+	/*반응선택자*/
+	div li:hover{
+		background-color:lightblue;
+	}
+	div li:active{
+		color:#f00;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>자손, 후선택자 1111</li>
+			<li>자손, 후선택자 2222</li>
+			<li>자손, 후선택자 3333</li>
+			<li>자손, 후선택자 4444
+				<h2>반응선택자.....</h2>
+			</li>
+			<li>자손, 후선택자 5555</li>
+		</ul>
+	</div>
+	<ul>
+		<li>자손, 후선택자 1111</li>
+		<li>자손, 후선택자 2222</li>
+		<li>자손, 후선택자 3333
+			<h2>반응선택자!!!!!!!!!!!!!</h2>
+		</li>
+		<li>자손, 후선택자 4444</li>
+		<li>자손, 후선택자 5555</li>
+	</ul>
+</body>
+</html>

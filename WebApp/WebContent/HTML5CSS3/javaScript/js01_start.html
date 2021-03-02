@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 2em;
+        }
+    </style>
+    <script language="javascript">
+        //한줄 주석
+        /* 여러줄 주석 */
+        document.write("자바스크립트에서 <b>표시한</b> 문자<br/>");
+        document.write('자바스크립트에서 <b>표시한</b> 문자<br/>');
+        
+        var r = "1+2+3";
+        document.write("r="+ r);
+        
+        var r2 = eval("1+2+3"); //r2가 int가 된다.
+        document.write("r2="+r2);
+        
+    </script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <form action="" name="frm">
+        <input type="text" name="userName" value="홍길동"/>
+    </form>
+    <br/>
+    <img src="../img/03_event_hover_menu1.jpg" alt="">
+    <script>
+        document.write("<img src='../img/controls.png'/>");
+        document.write("<h1>; 세미콜론을 생략할 수 있다.</h1>");
+        
+        document.frm.userName.value="세종대왕~~~~~";
+    </script>
+</body>
+</html>

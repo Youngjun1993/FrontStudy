@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function scrollMove(){
+            //스크롤바를 이동한다.
+            //상대 이동
+            //             x(좌우스크롤바), y(상하스크롤바)
+            window.scrollBy(0, 50);
+            
+            //절대 이동
+            window.scrollTo(0, 500);
+            
+            //현재스크롤바 위치
+            var scrollX = window.scrollX;
+            var scrollY = window.scrollY;
+            console.log('x->', scrollX);
+            console.log('y->', scrollY);
+        }
+        function scrollReset(){
+            window.scrollTo(0,0);
+        }
+        function scrollYMove(){
+            var scrollCnt = 20;
+            window.scrollBy(0, scrollCnt);
+            var scrollY = window.scrollY;
+            /*
+            if(scrollY == scrollCnt){
+               scrollReset();
+            }
+            */
+            console.log('y->', scrollY);
+        }
+        function autoMove(){
+            setInterval("scrollYMove()", 100);
+        }
+    </script>
+</head>
+<body onload="autoMove()">
+    <button onclick="scrollMove()">스크롤 이동</button>
+    <div>
+        <script>
+            for(var i=0; i<=10; i++){
+                document.write("<img src='../img/"+i+".jpg'/><br/>");
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*동위 선택자*/
+	/*
+		선택자A + 선택자B -> 선택자A의 바로 다음에 있는 선택자B에 적용된다.
+		선택자A ~ 선택자B -> 선택자A의 다음에 있는 모든 선택자B를 적용한다.
+	
+	
+	*/
+	h1+h2{
+		color:red;
+	}
+	h1~h2{
+		background-color:#ddd;
+	}
+</style>
+</head>
+<body>
+	<h1>동위 선택자 AAAAAAAAAA</h1>
+	<h2>동위 선택자 BBBBBBBBBB</h2>
+	<h2>동위 선택자 CCCCCCCCCC</h2>
+	<h2>동위 선택자 DDDDDDDDDD</h2>
+	<h2>동위 선택자 EEEEEEEEEE</h2>
+	<h2>동위 선택자 FFFFFFFFFF</h2>
+	<h3>~~~~~~~~~~~~~~~~~~~~</h3>
+	
+	<h1>동위 선택자 AAAAAAAAAA</h1>
+	<h2>동위 선택자 BBBBBBBBBB</h2>
+	<h2>동위 선택자 CCCCCCCCCC</h2>
+	<h2>동위 선택자 DDDDDDDDDD</h2>
+	<h2>동위 선택자 EEEEEEEEEE</h2>
+	<h2>동위 선택자 FFFFFFFFFF</h2>
+	<h3>~~~~~~~~~~~~~~~~~~~~</h3>
+</body>
+</html>

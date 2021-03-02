@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*상태 선택자*/
+	/* :focus-> 커서가 컴퍼넌트에 들어오면 */
+	input:focus{
+		background-color:yellow;
+	}
+	/*컴포넌트가 체크되면*/
+	input:checked{
+		width:50px; height:50px;
+	}
+	/*disabled : 비활성화 -> 값이 서버로 리턴되지 않는다.*/
+	/*readonly : 위와 같이 입력값을 막지만 조금 다른 이벤트가 발생하며 값이 서버로 리턴된다.*/
+	textarea:disabled{
+		color:red; font-size:1.5em;
+	}
+	/*enabled : 활성화일때 스타일 적용*/
+	intput:readonly{
+		background-color:red; color:#fff;
+	}
+</style>
+</head>
+<body>
+	<form method="post" action="bbb.jsp">
+		아이디 : <input type="text" name="userid" placeholder="아이디를 입력하세요."
+						size="10" maxlength="5" value="goguma" readonly/><br/>
+		비밀번호 : <input type="password" name="userpwd" placeholder="비밀번호를 입력하세요."/><br/>
+		파일첨부 : <input type="file" name="filename" id="filename" /><br/>
+		<input type="button" onclick="viewer()" value="클릭"/><br/>
+		<!-- 체크박스를 만들때 같은 정보는 name명을 똑같이 만든다. -->
+		체크박스 : <input type="checkbox" name="hobby" value="등산"/> 등산
+				  <input type="checkbox" name="hobby" value="농구" checked/> 농구
+				  <input type="checkbox" name="hobby" value="배구"/> 배구<br/>
+		라디오 : <input type="radio" name="gender" value="M" checked/> 남
+				<input type="radio" name="gender" value="F"/> 여 <br/>
+		<!-- textarea태그 안에 들어갈 텍스트가 value이다. -->
+		여러줄의 텍스트 : <textarea name="content" rows="5" cols="50" disabled>컨텐츠</textarea><br/>
+		<!-- 
+			size : 나타날 목록 갯수
+			multiple : 다중선택 가능(다중선택된 데이터 return)
+		 -->
+		목록 태그 :	<select name="hobby2" size="3" multiple>
+						<option value="농구">농구</option>
+						<option value="배구">배구</option>
+						<option value="야구" selected>야구</option>
+						<option value="축구">축구</option>
+				</select>
+				<br/>
+		<input type="button" value="버튼"/>
+	</form>
+</body>
+</html>

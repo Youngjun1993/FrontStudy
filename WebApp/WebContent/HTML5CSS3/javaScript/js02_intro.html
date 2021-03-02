@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="txt">스타일 시트를 자바스크립트에서 적용하기</h1>
+    <img src="../img/03_event_img1.jpg" alt="" id="flower">
+    <div id="view"></div>
+</body>
+</html>
+<script>
+    //자바스크립트는 변수 선언시 별도의 데이터형을 지정하지 않는다.
+    //처음으로 대입되는 데이터에 따라 데이터형이 자동으로 설정된다.
+    var imgTag="";
+    for(var i=1; i<=5; i++){
+        imgTag += "<img src='../img/"+i+".jpg'/>"
+    }
+    //                              변수
+    document.getElementById("view").innerHTML = imgTag;
+    
+    //자바스크립트에서 스타일 시트 적용하기
+    document.getElementById("txt").style.color="#555";
+    
+    var obj = document.getElementById("txt");
+    var obj2 = document.getElementById("txt").style;
+    
+    obj.style.backgroundColor="pink";
+    obj.style.border="1px solid green";
+    obj2.border = "2px sodid green";
+    
+    //자바스크립트에서 html속성 다루기
+    var imgObj = document.getElementById("flower");
+    imgObj.src='../img/BannerImage.jpg';
+    imgObj.title='풍선도움말~~~~~~';
+    
+    var imgFileName = imgObj.src;
+    document.write("<br/>", imgFileName); //br도 출력하고 변수도 출력을 +말고 ,도 가능
+    
+    console.log(imgFileName);
+    alert(imgFileName); // 대화상자 띄우기
+</script>

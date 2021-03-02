@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>표만들기</h1>
+	<pre>
+	table : 표의 시작
+	tr : 1줄 생성
+	td : 1칸 생성
+	th : 강조하고 싶은 줄에 td대신에 사용(글자가 칸의 가운데정렬, 글자 진하게)
+	
+	열단위로 처리
+	colgroup
+	col
+	
+	caption : 표의 제목
+	
+	thead : 표의 상단
+	tbody : 표의 내용
+	tfoot : 표의 하단
+	
+	속성
+	width, height : px, %
+	</pre>
+	
+	<table border="1" width="100%">
+		<caption><h1>표의 제목</h1></caption>
+		<colgroup>
+			<col span="2" style="background-image:url(../img/common.jpg)"/>
+			<col style="background:yellow"/>
+		</colgroup>
+		<thead>
+		<tr height="100">
+			<th>첫번째 칸</th>
+			<th style="background-color:#ff0000">두번째 칸</th>
+			<th>세번째 칸</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>두번째줄 1번째 칸</td>
+			<td><img src="../img/jeju_map.jpg" width="100"></td>
+			<td>두번째줄 3번째 칸</td>
+		</tr>
+		</tbody>
+		<tfoot>
+		<tr>
+			<td>두번째줄 1번째 칸</td>
+			<td><img src="../img/jeju_map.jpg" width="100"></td>
+			<td>두번째줄 3번째 칸</td>
+		</tr>
+		</tfoot>
+	</table>
+</body>
+</html>

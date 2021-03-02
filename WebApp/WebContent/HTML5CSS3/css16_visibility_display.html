@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    img{
+        width: 200px; height: 200px;
+    }    
+    /*
+        객체를 보여주거나 숨김
+        visibility : hidden(숨김) -> 공간을 그대로 가지고 있다., visible(보여주기)
+        display : none(숨김) -> 공간도 없애버린다., block(보여주기)
+    */
+    img:nth-of-type(1):hover{
+        display: none;
+    }
+    img:nth-of-type(2){
+        visibility: hidden;
+    }
+</style>
+</head>
+<body>
+    <img src="../img/common.jpg" alt="">
+    <img src="../img/jeju_map.jpg" alt="">
+    <img src="../img/naver_logo.png" alt="">
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        header {
+            height: 150px;
+            background: lightblue;
+        }
+        
+        #logo,
+        header>nav,
+        section {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        
+        #logo {
+            height: 100px;
+            font-size: 40px;
+            line-height: 100px;
+            text-align: center;
+        }
+        
+        header>nav {
+            height: 50px;
+        }
+        
+        header>nav li {
+            float: left;
+            text-align: center;
+            width: 20%;
+            line-height: 50px;
+        }
+        
+        section {
+            overflow: auto;
+        }
+        
+        section>nav {
+            width: 150px;
+            background: pink;
+            float: left;
+        }
+        
+        section>article {
+            width: 850px;
+            float: right;
+        }
+        
+        section>nav li {
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        section>article h1 {
+            text-align: center;
+        }
+        
+        section>article>ul {
+            margin: 50px;
+        }
+        
+        section>article li {
+            float: left;
+            width: 10%;
+            line-height: 40px;
+            border-bottom: 1px solid gray;
+        }
+        /*제목*/
+        
+        section>article li:nth-child(5n+2) {
+            width: 60%;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        
+        section>article li:nth-child(5n+1) {
+            width: 7%;
+        }
+        
+        section>article li:nth-child(5n+4) {
+            width: 13%;
+        }
+        
+        footer {
+            height: 100px;
+            text-align: center;
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="logo">BitCamp</div>
+        <nav>
+            <ul>
+                <li>Menu1</li>
+                <li>Menu2</li>
+                <li>Menu3</li>
+                <li>Menu4</li>
+                <li>Menu5</li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li>submenu1</li>
+                <li>submenu2</li>
+                <li>submenu3</li>
+                <li>submenu4</li>
+                <li>submenu5</li>
+            </ul>
+        </nav>
+        <article>
+            <h1>게시판</h1>
+            <ul>
+                <li>번호</li>
+                <li>제목</li>
+                <li>작성자</li>
+                <li>등록일</li>
+                <li>조회수</li>
+                <li>100</li>
+                <li>완전히 새롭게 태어난, 메르세데스-벤츠 C클래스 전격 공개!!!!!!!!!!!!</li>
+                <li>홍길동</li>
+                <li>2021-02-24</li>
+                <li>5</li>
+                <li>98</li>
+                <li>완전히 새롭게 태어난, 메르세데스-벤츠 C클래스 전격 공개!</li>
+                <li>홍길동</li>
+                <li>2021-02-24</li>
+                <li>5</li>
+                <li>95</li>
+                <li>완전히 새롭게 태어난, 메르세데스-벤츠 C클래스 전격 공개!</li>
+                <li>홍길동</li>
+                <li>2021-02-24</li>
+                <li>5</li>
+                <li>89</li>
+                <li>완전히 새롭게 태어난, 메르세데스-벤츠 C클래스 전격 공개!</li>
+                <li>홍길동</li>
+                <li>2021-02-24</li>
+                <li>5</li>
+                <li>88</li>
+                <li>완전히 새롭게 태어난, 메르세데스-벤츠 C클래스 전격 공개!</li>
+                <li>홍길동</li>
+                <li>2021-02-24</li>
+                <li>5</li>
+            </ul>
+        </article>
+    </section>
+    <footer> 하단~~~~~~~ </footer>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	function viewer(){
+		var r = document.getElementById("filename").value;
+		alert(r);
+	}
+</script>
+<body>
+	<h1>form 태그 : 사용자가 정보를 입력 또는 선택할 수  있는 폼 만들기</h1>
+	<!-- 
+		get 방식 전송 : 주소표시줄에 데이터가 표시
+		post방식 전송 : 데이터를 숨겨서 전송
+	 -->
+	<!-- <form method="post" action="member.jsp?username='홍길동'" name="frm" enctype="multipart/form-data"> entype="multipart/form-data"를 선언해줘야 파일 업로드가 가능하다. -->
+	<form>
+		<!-- 
+			input : 아이디, 비밀번호, checkbox, radio, 버튼
+			select, option
+			textarea
+			
+			name:자바 or JSP에 넘기기 위한 변수명 선언,		value:초기값 셋팅,		placeholder:안내메세지,	size:글자수로 폭설정,	maxlength:최대입력문자수
+		 -->
+		 아이디 : <input type="text" name="userid" placeholder="아이디를 입력하세요." size="10" maxlength="5"/><br/>
+		 비밀번호 : <input type="password" name="userpwd" placeholder="비밀번호를 입력하세요."/><br/>
+		 파일첨부 : <input type="file" name="filename" id="filename" /><br/>
+		 <input type="button" onclick="viewer()" value="클릭"/><br/>
+		 <!-- 체크박스를 만들때 같은 정보는 name명을 똑같이 만든다. -->
+		 체크박스 : <input type="checkbox" name="hobby" value="등산"/> 등산
+		 		  <input type="checkbox" name="hobby" value="농구" checked/> 농구
+		 		  <input type="checkbox" name="hobby" value="배구"/> 배구<br/>
+		 라디오 : <input type="radio" name="gender" value="M" checked/> 남
+		 		<input type="radio" name="gender" value="F"/> 여 <br/>
+		 <!-- textarea태그 안에 들어갈 텍스트가 value이다. -->
+		 여러줄의 텍스트 : <textarea name="content" rows="5" cols="50">컨텐츠</textarea><br/>
+		 <!-- 
+		 	size : 나타날 목록 갯수
+		 	multiple : 다중선택 가능(다중선택된 데이터 return)
+		  -->
+		 목록 태그 :	<select name="hobby2" size="3" multiple>
+		 				<option value="농구">농구</option>
+		 				<option value="배구">배구</option>
+		 				<option value="야구" selected>야구</option>
+		 				<option value="축구">축구</option>
+					</select>
+					<br/>
+		 목록 태그 :	<select name="choice">
+		 				<optgroup label="프론트엔드">
+		 					<option value="html">html</option>
+		 					<option value="css">css</option>
+		 					<option value="javascript">javascript</option>
+		 				</optgroup>
+		 				<optgroup label="백엔드">
+		 					<option value="jsp">jsp</option>
+		 					<option value="servlet">servlet</option>
+		 				</optgroup>
+		 			</select>
+		 			<br/>
+		 버튼 :	<input type="button" value="버튼"/>
+		 		<input type="submit" value="보내기" formaction="member2.jsp" formmethod="post" formtarget="_blank" fromtype="multipart/form-data"/><!-- submit이 발생하면 member.jsp로 이동한다. -->
+		 		<input type="reset" value="다시쓰기"/><!-- 폼내의 컴퍼넌트 초기화 -->
+		 		<button>버튼</button>
+		 		<input type="image" src="../img/naver_logo.png"/>
+		 <hr/>
+		 <!-- 날짜 처리 -->
+		 date : <input type="date" name="date1"/> 년월일<br/>
+		 datetime-local : <input type="datetime-local" name="date2"/>년월일 시분<br/>
+		 month : <input type="month" name="date3"/>년 월<br/>
+		 week : <input type="week" name="date4"/>년단위의 주 차수<br/>
+		 color : <input type="color" name="color"/>rgb코드 표 <br/>
+		 number : <input type="number" name="number" min="1" max="10" step="2"/>숫자 데이터만 핸들링하는 필드<br/>
+		 range : <input type="range" name="range" min="1" max="100" value="10"/><br/>
+	</form>
+</body>
+</html>

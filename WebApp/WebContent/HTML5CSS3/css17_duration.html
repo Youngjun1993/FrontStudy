@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /*overflow : hidden, scroll, auto*/
+        div{width: 500px;height: 500px; overflow: hidden; border: 1px solid gray;}
+        div>img{width: 100%;}
+        
+        input:checked+div{
+            height: 20px;
+            /*display: none;*/
+            transition-duration:2s; /*지정한 시간(초단위)을 기준으로 변환*/
+            opacity: 0.5;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox"/>클릭
+    <div>
+        <img src="../img/common.jpg" alt="">    
+    </div>
+    <div>
+        adsfdsafdsafdsaf
+    </div>
+</body>
+</html>

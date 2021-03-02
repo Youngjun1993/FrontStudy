@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구조선택자, 문자</title>
+<style>
+	/*
+	nth-child(2n) : 짝수, 홀수 번째에 적용
+	구조선택자
+		홀수번째, 짝수번째
+		2n+1,	2n
+	*/
+	#std>ul>li:nth-child(2n){
+		color:red;
+	}
+	#std>ul>li:nth-child(2n+1){
+		background:#ddd;
+	}
+	/*
+		:first-child -> 첫번째 객체
+		:last-child -> 마지막 객체
+	*/
+	#std>ul>li:first-child{
+		font-size:1.5em;
+	}
+	#std>ul>li:last-chlid{
+		color:blue;
+		font-size:1.2em;
+	}
+	#std>ul>li:nth-child(3){
+		background-color:green;
+	}
+	/*구조선택자*/
+	/*
+		:first-of-type
+		:last-of-type
+		
+		:nth-of-type(2n) 짝수
+		:nth-of-type(3n+1) 홀수
+		
+	*/
+	#std2 li:first-of-type{
+		color:green;
+	}
+	#std2 li:last-of-type{
+		background-color:lightblue;
+	}
+	#std2 li:nth-of-type(2n){
+		color:red;
+	}
+	#std2 li:nth-of-type(2n+1){
+		font-weight:700;
+	}
+	/*
+		문자 스타일
+		::first-letter -> 문자의 첫번째 글자에 대한 스타일
+		::first-line -> 문자열의 첫번째 행에 대한 스타일
+		::selection -> 문자열을 선택했을때 선택영역에 대한 스타일(드래그)
+	*/
+	#txt::first-letter{
+		color:red; font-size:30px; font-weight:bold;
+	}
+	#txt::first-line{
+		text-decoration:underline;
+		color:blue;
+	}
+	#txt::selection{
+		background-color:#000; color:yellow;
+	}
+	/*
+		부정(not) 선택자
+		:not -> 선택자를 제외한 나머지에 스타일 지정한다.
+	*/
+	#lnk>a:not([target=_blank]){
+		background-color:orange;
+	}
+	/*
+		링크 주소를 표시하는 스타일
+		::after -> 텍스트를 표시후 주소를 표시한다.
+		::before -> 주소를 표시후 텍스트를 표시한다.
+	*/
+	#lnk>a::after{content:'->' attr(href)}
+	#lnk>a::before{content:attr(href) '<-'}
+</style>
+</head>
+<!-- 
+	html속성을 이용한 마우스 드래그 또는 복사 제한
+	
+	oncontextmenu : 마우스 오른쪽 버튼 메뉴 제어
+	onselectstart : 마우스 드래그 시작 불가능
+	
+ -->
+<body oncontextmenu="return false" onselectstart="return false">
+	<div id="std">
+		<ul>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+		</ul>
+	</div>
+	<div id="std2">
+		<ul>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+			<li>구조 선택자 ~~~~~~~</li>
+		</ul>
+	</div>
+	<div id="txt">
+		특정경제범죄 가중처벌 등에 관한 법률 
+제14조(일정 기간의 취업제한 및 인가ㆍ허가 금지 등) 
+① 유죄판결을 받은 사람은 다음 각 호의 기간 동안 금융회사등, 국가ㆍ지방자치단체가 자본금의 전부 또는 일부를 출자한 기관 및 그 출연(出捐)이나 보조를 받는 기관과 유죄판결된 범죄행위와 밀접한 관련이 있는 기업체에 취업할 수 없다. 다만, 대통령령으로 정하는 바에 따라 법무부장관의 승인을 받은 경우에는 그러하지 아니하다.
+1. 징역형의 집행이 종료되거나 집행을 받지 아니하기로 확정된 날부터 5년
+2. 징역형의 집행유예기간이 종료된 날부터 2년
+3. 징역형의 선고유예기간
+	</div>
+	<div id="lnk">
+		<a href="https://www.daum.net">다음</a><br/>
+		<a href="https://www.nate.com" target="_blank">네이트</a><br/>
+		<a href="../index.html">홈으로</a><br/>
+		<a href="https://www.oracle.com">오라클</a><br/>
+	</div>
+</body>
+</html>

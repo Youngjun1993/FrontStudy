@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Map을 이용한 링크 걸기</h1>
+	<img src="../img/jeju_map.jpg" usemap="#jejuMap"/>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- map 링크 걸기 -->
+	<map name="jejuMap">
+		<!-- 사각형 모양으로 링크걸기 -->
+		<!-- 링크 범위 모양 : rect, circle, poly -->
+		<area shape="rect" coords="193,127,295,170" href="https://www.airport.co.kr/jeju/index.do" title="제주공항으로 이동" target="_blank"/>
+		<!-- 						x, y, r(반지름) -->
+		<area shape="circle" coords="340,270,30" href="https://www.jeju.go.kr/corona19.jsp" />
+		<!-- 						x, y, x, y, x, y ..... 시작점을 기준으로 한쪽 방향으로 표시 -->
+		<area shape="poly" coords="80,210,125,240,88,280,32,265,20,220" href="../index.html"/>
+	</map>
+</body>
+</html>
