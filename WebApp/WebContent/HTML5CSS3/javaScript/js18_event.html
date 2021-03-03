@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #overOut, #overOut *, #overOut2, #overOut2 *{
+            padding: 50px;
+            border: 1px solid gray;
+        }
+        #overOut, #overOut2{
+            background: yellow;
+        }
+        #overOut>h1, #overOut2>h1{
+            background: pink;
+        }
+        #overOut b{
+            background: #ddd;
+        }
+        #view, #view2{
+            font-size: 2em;
+        }
+    </style>
+    <script>
+        //onclick
+        //onouseover, onmouseout : 마우스가 객체로 들어갈때, 나올때(하위객체이벤트가 발생한다.)
+        //onmouseenter, onmouseleave : 마우스가 객체로 들어오면 발생한다.(하위객체이벤트가 발생하지 않는다.)
+        
+        //onmousedown : 마우스를 누른상태
+        //onmouseup : 마우스를 누른 후 놓으면
+        //onmousemove : 마우스를 움직이면
+        
+        //onfocus : 커서가 객체에 들어오면
+        //onblur : 커서가 객체를 나가면
+        
+        //onsubmit : form에서 submit이벤트가 발생했을때
+        //onreset : form에서 reset이벤트가 발생
+        
+        //onkeydown : key를 누른상태
+        //onkeypress : key를 누른상태
+        //onkeyup : key를 누른후 놓으면
+        
+        //onchange : value의 값이 바뀌면 발생
+        
+        //onload : body가 로딩되면
+        //onunload : body가 종료되면
+        
+        //onresize : 창의 크기가 바뀌면
+        var cnt=0;
+        function overTest(){//마우스 오버일때
+            cnt++;
+            viewOutput();
+        }
+        var outCnt=0;
+        function outTest(){
+            outCnt++;
+            viewOutput();
+        }
+        function viewOutput(){
+            document.getElementById("view").innerHTML = "mouseover->"+cnt+"번째 실행<br/>mouseout->"+outCnt+"번째 실행";
+        }
+        var cnt2=0, outCnt2=0;
+        function enterTest(){
+            cnt2++;
+            document.getElementById("view2").innerHTML = "mouseenter->"+cnt2+"<br/>mouseleave->"+outCnt;
+        }
+        function leaveTest(){
+            outCnt2++;
+            document.getElementById("view2").innerHTML = "mouseenter->"+cnt2+"<br/>mouseleave->"+outCnt2;
+        }
+        function formCheck(){
+            //아이디 체크
+            if(document.getElementById("userid").value==""){
+                alert("아이디를 입력하세요...");
+                document.getElementById("userid").focus();//아이디박스에 커서 이동
+                return false;
+            }
+            //비밀번호 체크
+            if(document.getElementById("userpwd").value==""){
+                alert("비밀번호를 입력하세요..");
+                document.getElementById("userpwd").focus();
+                return false;
+            }
+            return true;
+        }
+        //버튼을 이용한 submit처리
+        function formCheck2(){
+            //아이디 체크
+            if(document.getElementById("userid").value==""){
+                alert("아이디를 입력하세요...");
+                document.getElementById("userid").focus();//아이디박스에 커서 이동
+                return false;
+            }
+            //비밀번호 체크
+            if(document.getElementById("userpwd").value==""){
+                alert("비밀번호를 입력하세요..");
+                document.getElementById("userpwd").focus();
+                return false;
+            }
+            //form을 submit발생시킨다.
+            //document.logFrm.submit();
+            document.getElementById("logFrm").submit();
+        }
+        function keyTest(){
+            var keyCode = event.keyCode;
+            document.getElementById("view2").innerHTML = keyCode;
+        }
+    </script>
+</head>
+<body onresize="alert('창의 크기가 변경되었습니다.')">
+    <form method="post" action="aaa.jsp" id="logFrm" name="logFrm" onsubmit="return formCheck()" onreset="alert('reset실행중')">
+        아이디 : <input type="text" name="userid" id="userid" onfocus="this.style.backgroundColor='pink'"  onblur="this.style.color='yellow'"><br/>
+        비밀번호 : <input type="password" name="userpwd" id="userpwd"><br/>
+        <input type="text" name="username" id="username" onkeydown="this.style.background='lightblue'; keyTest();"/><br/>
+        <select name="" id="" onchange="this.style.fontSize='2em'">
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+        </select>
+        <input type="submit" value="로그인"/>
+        <button>로그인</button>
+        <input type="image" src="../img/1.jpg"/>
+        <input type="button" value="LOGIN" onclick="logCheck2()"/>
+        
+        <input type="reset" value="다시쓰기" />
+    </form>
+    <div id="overOut2" onmouseenter="enterTest()" onmouseleave="leaveTest()">
+        <h1>onmouseenter, <b>onmouseleave</b> 이벤트</h1>
+    </div>
+    <div id="view2"></div>
+    <hr/>
+    <div id="overOut" onmouseover="overTest()" onmouseout="outTest()">
+        <h1>onmouseover, <b>onmouseout</b> 이벤트</h1>
+    </div>
+    <div id="view"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #test{height: 100px;border: 1px solid gray;}
+    </style>
+    <script>
+        document.onmouseenter = function(){
+            document.body.style.backgroundColor="yellow";
+        }
+    </script>
+</head>
+<body>
+    <!--<div id='test' onclick="this.style.background='pink'">-->
+    <div id="test">
+        이벤트 구현 방법
+    </div>
+    <script>
+        //이벤트 처리방법2 : addEventlistener()를 이용한 방법
+        var d1 = document.getElementById("test");
+        
+        function event1(){
+            d1.style.backgroundColor="#ddd";
+        }
+        //                  이벤트종류   이벤트 발생시 실행할 함수
+        d1.addEventListener('mouseover', event1);
+        
+        d1.addEventListener('click', function(){
+            d1.style.background="#fff";
+            d1.style.color="red";
+        });
+        
+    </script>
+</body>
+</html>
