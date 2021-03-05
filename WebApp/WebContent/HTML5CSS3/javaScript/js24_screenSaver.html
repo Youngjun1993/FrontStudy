@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #container{
+            width: 1000px;
+            margin: 0 auto;
+            background: #eee;
+        }
+        #content>img{
+            width: 100%;
+        }
+        #imgList>img{
+            width: 100px; height: 100px;
+        }
+        /* 화면보호기 */
+        #saveMsg{
+            font-size: 2em;
+            color:yellow;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+        }
+        #saveMsg, #saveImage, #wing{
+            display: none;
+        }
+        #saveImage{
+            width: 100%;
+        }
+        #wing{
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+    <script>
+        function imageSet(){
+            var imgName = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg','image6.jpg','image7.jpg','image8.jpg']
+            
+            var tag = "";
+            for(var i=0; i<imgName.length; i++){
+                tag += "<img src='../img/"+imgName[i]+"' onclick='showScreenSaver(this.src)'>";
+            }
+            document.getElementById("imgList").innerHTML = tag;
+        }
+        var timer;
+        function showScreenSaver(selImg){
+            var wHeight = window.innerHeight;
+            console.log(selImg);
+            //1.현재 컨텐츠 전체 숨기기
+            document.getElementById("container").style.display="none";
+            //2.화면보호기 메세지
+            document.getElementById("saveMsg").style.display="block";
+            //3.화면보호기 이미지
+            //var saverImg = document.getElementById("saveImage");
+            //saverImg.style.display = "block";
+            //saverImg.src = selImg;
+            
+            //3. 화면보호기 이미지 배경으로 설정하기
+            document.body.style.backgroundImage = "url("+selImg+")";
+            document.body.style.backgroundSize = "100% " + wHeight + "px";
+            
+            //현재 윈도우 높이를 구한다.
+            //saveImg.style.height = wHeight+"px";
+            
+            //4. 날개이미지
+            document.getElementById("wing").style.display="block";
+            timer = setInterval("screenSaverMove()",200);
+        }
+        //화면보호기 종료
+        function screenSaveEnd(){
+            clearInterval(timer);
+            document.getElementById("container").style.display="block";
+            document.getElementById("saveMsg").style.display="none";
+            //document.getElementById("saveImage").style.display="none";
+            document.getElementById("wing").style.display="none";
+            document.body.style.backgroundImage= "";
+        }
+        //날개 움직이기
+        var wWidth, wHeight, x=0, y=0, leftStep=5, topStep=5;
+        function screenSaverMove(){
+            //윈도우크기
+            wWidth = window.innerWidth;
+            wHeight = window.innerHeight;
+            
+            x = x + leftStep; //+5
+            y = y + topStep; //+5
+            
+            var wing = document.getElementById("wing").style;
+            wing.left = x+"px";
+            wing.top = y+"px";
+            
+            //방향전환
+            if(wHeight-100-5<=y) topStep=-5;
+            if(wWidth-300-5<=x) leftStep=-5;
+            
+            if(y<=0) topStep=5;
+            if(x<=0) leftStep=5;
+        }
+    </script>
+</head>
+<body onload="imageSet();" onkeydown="screenSaveEnd();">
+    <!--컨텐츠-->
+    <div id="container">
+        <div>이미지를 클릭하시면 화면보호기로 이동합니다.</div>
+        <div id="imgList"></div>
+        <hr />
+        <div id="content">
+            <img src="../img/main_img1.jpg" alt="">    
+            <img src="../img/main_img2.jpg" alt="">
+        </div>
+    </div>
+    <!--화면보호기-->
+    <div id="saveMsg">아무키나 누르시면 화면보호기가 종료됩니다.</div>
+    <!--<img src="../img/image1.jpg" alt="" id="saveImage">-->
+    <img src="../img/KakaoTalk_20210304_111318047.gif" alt="" id="wing">
+</body>
+</html>
