@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--
+        jquery는 javascript 라이브러리이다.
+        
+        http://www.jquery.com에서 다운로드받는다.
+
+        html/css/javascript실행 후 jquery실행
+        이벤트는 jquery실행 후 실행됨.
+        
+    -->
+    <script src="lib/jquery-3.6.0.min.js"></script>
+    <script>
+        alert("자바스크립트");
+        
+        function show(){
+            alert("show메소드");
+        }
+        //jquery 코드
+        //선택자     이벤트종류 : body실행이 끝나면 jquery ready이벤트 발생
+        $(document).ready(
+            //무조건 함수로 구현해야한다
+            function(){
+                //jquery 실행부
+                alert("jqeury 실행부");
+                show();
+            }
+        );
+    </script>
+</head>
+<body onload="alert('onload실행됨....')">
+    <h1>html 문서.....</h1>
+</body>
+</html>

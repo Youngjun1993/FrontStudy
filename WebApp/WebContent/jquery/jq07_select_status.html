@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //상태선택자
+            // :text -> 속성값이 text인 객체를 선택한다.
+            $(":text").css("background","pink");
+            
+            // :checked
+            $(":checked").attr('checked',false);
+            
+            // selectedIndex -> 선택된 목록의 index
+            console.log($("#site").prop('selectedIndex'), $("#site").val());
+            
+            // :selected
+            $(":selected").attr('selected',false);
+            
+            //컨텐츠 선택자
+            $("p").css("margin", "10px").css("padding","10px").css("border","3px solid green");
+            
+            //contains() : 특정문자열이 포함된 경우 선택
+            $("p:contains('변호사')").css('background','pink');
+            
+            //has() : 하위에 특정 태그가 포함되면 선택
+            $('p:has("b")').css('color','red');
+            
+            //not() : 특정선택자를 제외한 나머지를 선택한다.
+            $('p:not(:first)').css('color','blue'); //p태그중 처음꺼를 제외한 나머지 선택
+            
+            //closest() : 조상선택자
+            $('i').closest('body').css('border','3px dashed green');
+            
+            //filter()
+            $('p').filter('.c1').css('text-decoration', 'underline');
+            
+            //contents(): 선택자의 하위 내용이 다른 태그에 포함된 경우
+            $('p').contents().css('font-size','2em');
+            
+        });
+    </script>
+</head>
+<body>
+   <div>
+       <p>
+            박 변호사는 증거에 대해서도 <b>‘인격권 보호 측면’에서 공개하기 힘들다고 밝혔다.</b>그는 “증거 자료는 법정에서 기성용 측에 제공하겠다”며 “저희가 확보한 증거 자료에는 기성용과 피해자들 이외에도 많은 사람들이 등장한다. 그분들의 인격권 보호를 위한 측면에서라도 증거 자료를 일반에 공개하기 어려운 점을 이해해 주시기 바란다”는 입장을 밝혔다. 
+       </p>
+       <p class="c1">
+            최근 건강하고 안전한 먹거리에 대한 소비자들의 관심과 코로나19의 장기화로 인한 ‘집콕 소비’, ‘보상 소비’ 심리가 함께 맞물리며, 프리미엄 제품에 대한 소비자들의 관심이 커졌습니다.
+            이에 업계에서는 좋은 재료를 바탕으로 정성을 더해 만든 프리미엄 제품이나, 프리미엄 컨셉의 브랜드를 새롭게 론칭하며 ‘프리미엄’ 마케팅에 집중하고 있습니다.
+            맞춤형 유동식 생산 전문 기업 순수본㈜의 ‘베이비본죽’은 아기의 각 단계에 맞는 맞춤형 영양 설계를 통해서 친환경, 유기농 원재료를 엄선해 만든 프리미엄 수제 이유식으로 MZ세대 부모들의 마음을 잡았는데요.  2021년 1월 매출의 경우 전년 동기간 대비 40% 상승했습니다.
+       </p>
+       <p class="c1">
+            박 변호사는 증거에 대해서도 ‘인격권 보호 측면’에서 공개하기 힘들다고 밝혔다. 그는 “증거 자료는 법정에서 기성용 측에 제공하겠다”며 <i>“저희가 확보한 증거 자료에는 기성용과 피해자들 이외에도 많은 사람들이 등장한다.</i> 그분들의 인격권 보호를 위한 측면에서라도 증거 자료를 일반에 공개하기 어려운 점을 이해해 주시기 바란다”는 입장을 밝혔다. 
+       </p>
+   </div>
+   
+    <form action="">
+        <ul>
+            <li>이름</li>
+            <li><input type="text" name="username" id="username"/></li>
+            <li>연락처</li>
+            <li><input type="text" name="tel" id="tel"/></li>
+            <li><label>사용동의여부</label></li>
+            <li>
+                <input type="radio" name="accept" value="yes" checked />동의
+                <input type="radio" name="accept" value="no" />동의 안함
+            </li>
+            <li><label for="">자주가는 사이트</label></li>
+            <li>
+                <select name="site" id="site">
+                    <option value="not">==직접선택==</option>
+                    <option value="daum">다음</option>
+                    <option value="nate" selected>네이트</option>
+                    <option value="naver">네이버</option>
+                </select>
+            </li>
+            <li>
+                <input type="button" value="확인"/>
+            </li>
+        </ul>
+    </form>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /*reset*/
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+        a{text-decoration: none;}
+        /*class*/
+        .w1200Center{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .w800Center{
+            width: 800px;
+            margin: 0 auto;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        /*style*/
+        
+        /*header*/
+        #header{
+            width: 100%;
+        }
+        #header>ul{
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        #header>ul>li{
+            float: left;
+            width: 20%;
+        }
+        #header>ul>li>a{
+            display: block;
+            width: 100%;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: #000;
+            font-weight: bold;
+            position: relative;
+        }
+        #header>ul>li:nth-child(3) a{
+            font-size: 23px;
+        }
+        /*banner*/
+        #banner{
+            overflow: hidden;
+        }
+        #banner>div{
+            width: 8000px;
+            position: relative;
+        }
+        #banner>div img{
+            width: 1200px;
+            height: 300px;
+            float: left;
+        }
+        /*con*/
+        #con>ul{
+            width: 400px;
+            float: left;
+        }
+        #con>ul>li{
+            border: 1px solid #fff;
+            background: #eee;
+            width: 49%;
+            height: 100px;
+            line-height: 100px;
+            float: left;
+            text-align: center;
+        }
+        #con>div{
+            float: left;
+            text-align: center;
+            width: 398px;
+            height: 200px;
+            line-height: 200px;
+            border: 1px solid #ddd;
+            background: lightblue;
+        }
+        #con2{
+            height: 2000px;
+            background: #000;
+        }
+    </style>
+    <script>
+        var timer;
+        var outoCtn=1;
+        $(function(){
+            timer = setInterval('slideBan()', 1000);
+            
+            $("#banner>div").hover(function(){
+                clearInterval(timer);  
+            },function(){
+                timer = setInterval('slideBan()', 1000);
+            });
+            
+            $("header>ul>li>a").hover(function(){
+                $(this).css({
+                    'background' : '#000'
+                    ,'color' : '#fff'
+                })
+            },function(){
+                $(this).css({
+                    'background' : "#fff"
+                    ,'color' : '#000'
+                })
+            });
+            
+        });
+        function slideBan(){
+            var leftM = -(1200*outoCtn);
+            $("#banner>div").animate({
+                marginLeft : leftM+"px"
+            });
+            outoCtn++;
+            if(outoCtn>=4){
+                outoCtn = 0;
+            }
+        }
+        function menuFixed(){
+            var menu = document.getElementById("header");
+            
+        }
+    </script>
+</head>
+<body onscroll="">
+    <div id="wrap" class="w1200Center">
+        <div id="header">
+            <ul class="clearfix">
+                <li><a href="#">메뉴1</a></li>
+                <li><a href="#">메뉴2</a></li>
+                <li><a href="#">Logo</a></li>
+                <li><a href="#">메뉴3</a></li>
+                <li><a href="#">메뉴4</a></li>
+            </ul>
+        </div>
+        <div id="banner" class="w1200Center">
+            <div class="clearfix">
+                <img src="img/img1.jpg" alt=""/><img src="img/img2.jpg" alt=""/><img src="img/img3.jpg" alt=""/><img src="img/img4.jpg" alt=""/>
+            </div>
+        </div>
+        <div id="con" class="w800Center clearfix">
+            <ul class="clearfix">
+                <li>내용1</li>
+                <li>내용2</li>
+                <li>내용3</li>
+                <li>내용4</li>
+            </ul>
+            <div>내용5</div>
+        </div>
+        <div id="con2"></div>
+    </div>
+</body>
+</html>

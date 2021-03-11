@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body, ul, li{
+            margin: 0; padding: 0; list-style: none;
+        }
+        a:link, a:visited, a:active{
+            text-decoration: none;
+        }
+        a:hover{
+            color:#000; font-weight: bold;
+        }
+        
+        .container{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        /*header*/
+        header{
+            font-size: 4em;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            border-bottom: 3px solid gray;
+        }
+        
+        /*메뉴*/
+        #menu{
+            height: 50px;
+            border-bottom:1px solid gray;
+        }
+        #menu>li{
+            float: left;
+            width: 20%;
+            overflow: hidden;
+        }
+        #menu li{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #fff;
+        }
+        #menu ul{
+            position: relative;
+            border: 1px solid gray;
+        }
+        #menu{
+            background: yellow;
+        }
+        img{
+            width: 1000px;
+        }
+    </style>
+    <script>
+        $(function(){
+             $("#menu>li").hover(function(){
+                //마우스 오버일때
+                $(this).children("ul").css("display","block");
+             }, function(){
+                //마우스 아웃일때
+                $(this).children("ul").css("display","none");
+             });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            GIRLSDILY
+        </header>
+        <ul id="menu">
+            <li>
+                <a href="#">OUTER</a>
+                <ul>
+                    <li><a href="#">가디건</a></li>
+                    <li><a href="#">자켓&점퍼</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">TOP</a>
+                <ul>
+                    <li><a href="#">Tee</a></li>
+                    <li><a href="#">Cami</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#">DRESS</a>
+                <ul>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">바캉스룩</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#">BOTTOM</a>
+                <ul>
+                    <li><a href="#">레깅스</a></li>
+                    <li><a href="#">힐링투엘브</a></li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#">SUMMER</a>
+                <ul>
+                    <li><a href="#">HOLI스윙웨어</a></li>
+                    <li><a href="#">at 22ºC</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="content">
+            <img src="../img/BannerImage3.jpg" alt="" />
+        </div>
+    </div>
+</body>
+</html>

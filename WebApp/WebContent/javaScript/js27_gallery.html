@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #mainDiv{
+            width: 900px; margin: 0 auto;
+        }
+        #mainDiv>img{
+            width:150px; height: 150px;
+        }
+        #modal{
+            background-color: gray;
+            opacity: 0.5;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            display: none;
+        }
+        #bigShow{
+            width: 500px;
+            height: 550px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            background-color: #ddd;
+            position: absolute;
+            display: none;
+            z-index: 100;
+            left: 0px;
+            top: 0px;
+        }
+        #title{
+            font-size: 2em;
+            text-align: center;
+            height: 40px;
+            background: #ddd;
+        }
+        #bigImage{
+            width: 500px;
+            height: 500px;
+            
+        }
+    </style>
+    <script>
+        function setImage(){
+            var tag="";
+            for(var j=1; j<=3; j++){            
+                for(var i=1; i<=13; i++){
+                    tag += "<img src='../img/image" + i + ".jpg' onclick='bigShowStart(this.src)'/>";
+                }
+            }
+            document.getElementById("mainDiv").innerHTML = tag;
+        }
+        function bigShowStart(filename){
+            //모달
+            var modal = document.getElementById("modal");
+            modal.style.display = "block";
+            //컨텐츠 높이만큼 모달 높이를 지정
+            //document.body.scrollHeight; document.documentElement.clientHeight
+            modal.style.height = document.body.scrollHeight + "px";
+            //큰이미지
+            //마우스를 클릭 좌표구하기
+            var x = event.clientX - 250;
+            var y = event.clientY + window.scrollY;
+            
+            var bigShow = document.getElementById("bigShow");
+            bigShow.style.display = "block";
+            bigShow.style.left = x+"px";
+            bigShow.style.top = y+"px";
+            console.log(x, y);
+            
+            document.getElementById("filename").innerHTML = filename.substring(filename.lastIndexOf("/")+1); //마지막 '/' 뒤부터 끝까지
+            document.getElementById("bigImage").src = filename;
+        }
+        function bigShowClose(){
+            document.getElementById("modal").style.display = "none";
+            document.getElementById("bigShow").style.display = "none";
+        }
+        // div이동 ==========================
+        var flag=false, bigX, bigY, x, y;
+        function moveStart(){
+            flag=true;
+            
+            bigX = parseInt(document.getElementById("bigShow").style.left);
+            bihY = parseInt(document.getElementById("bigShow").style.top);
+            
+            x = event.clientX;
+            y = event.clientY;
+            
+            document.onmousemove = divMove;
+        }
+        function divMove(){
+            if(flag == true){
+                document.getElementById("bigShow").style.left = (event.clientX-x)+bigX+"px";
+                document.getElementById("bigShow").style.top = (event.clientY-y)+bigY+"px";
+            }
+        }
+        function divClose(){
+            flag = false;
+        }
+        document.onmouseup = divClose;
+    </script>
+</head>
+<body onload="setImage()">
+    <div id="mainDiv"></div>
+    <!--모달-->
+    <div id="modal"></div>
+    <div id="bigShow">
+        <div id="filename" onmousedown="moveStart()"></div>
+        <img id="bigImage" src="../img/image15.jpg" alt="" onclick="bigShowClose()"/>
+    </div>
+    
+</body>
+</html>

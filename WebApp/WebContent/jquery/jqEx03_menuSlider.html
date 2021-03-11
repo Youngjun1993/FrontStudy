@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body, ul, li{margin: 0; padding: 0;}
+        body{
+            background: url(../img/noise.png);
+        }
+        .container{
+            background: url(../img/bg1.jpg) no-repeat;
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .container>img{
+            width: 100%;
+        }
+        
+        #topMenu{
+            padding: 0px 130px;
+        }
+        #topMenu>li{
+            list-style: none;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            width: 25%;
+            height: 149px;
+            line-height: 149px;
+            background: url(../img/label.png) no-repeat;
+            background-position: center -149px;
+            transition-duration: 1s;
+        }
+        #topMenu a{
+            text-decoration: none;
+            color:rgb(102,0,102);
+        }
+    </style>
+    <script>
+        $(function(){
+            var menu = ['MENU','ABOUT','WORK','CONTACT'];
+            
+            menu.map(function(value, index){
+                $("#topMenu").append("<li><a href='#'>"+value+"</a></li>");
+            });
+            
+            //마우스 오버 아웃 이벤트
+            $("#topMenu>li").hover(function(){
+                $(this).css("background-position","center 0px");
+            },function(){
+                $(this).css("background-position","center -149px");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <ul id="topMenu"></ul>
+        <img src="../img/main1.jpg" alt=""/>
+    
+    </div>
+</body>
+</html>

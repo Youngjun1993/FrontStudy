@@ -22,6 +22,7 @@
             
             //                  정수화(난수*(큰수-작은수+1))+작은수 
             tag += "<li>random="+Math.random()+"</li>";
+            tag += "<li>random(1~10)="+Math.floor((Math.random()*(10-1+1)+1))+"</li>";
             
             document.getElementById("view").innerHTML = tag + "</ul>";
             

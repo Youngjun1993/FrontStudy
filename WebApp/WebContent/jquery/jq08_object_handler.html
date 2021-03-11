@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //text, html - innerHTML
+            var tag = "<img src='../img/1.jpg'/>";
+            
+            $('#result').html(tag); //html태그로 넣기
+            console.log($('#result').html()); // html태그 가져오기
+            
+            $('#result').text(tag); //문자열로 넣기
+            console.log($('#daum1').text());
+            
+            $('h2').children('a').attr('href', 'https://www.nate.com');
+            $('h2>a').attr('target', '_blank');
+            
+            //속성값 지우기
+            //$('h2').children('a').attr('href',""); //속성명은 유지되고 속성값만 없어진다.
+            $('a').removeAttr('href'); //속성명 자체를 지워버린다.
+        })
+    </script>
+</head>
+<body>
+    <h1 id="daum1">객체 조작1</h1>
+    <h2><a>객체 조작2</a></h2>
+    <div id="result">
+        
+    </div>
+</body>
+</html>

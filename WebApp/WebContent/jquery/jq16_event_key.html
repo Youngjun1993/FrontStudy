@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #reply{
+            width: 400px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        $(function(){
+            // onkeydown, onkeyup, onkeypress, onkeyrelease
+             $("#reply").keyup(function(){
+                 //현재 입력된 글자수를 구하고 100글자에서 빼고 표시해준다.
+                 var txtCount = 100-$("#reply").val().length;
+                 $("span").text(txtCount);
+             });
+        });
+    </script>
+</head>
+<body>
+    <div>남은 문자수 : <span>100</span></div>
+    <textarea name="" id="reply" maxlength="100"></textarea>
+</body>
+</html>
