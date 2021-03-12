@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="lib/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <style>
+        .jumbotron{
+            padding: 20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--
+            .jumbotron : padding, 둥근사각형, 회색배경이 설정된 클래스
+        -->
+        <div class="jumbotron">
+            dddddddddddddddddddddddddddddddddddddddddddddddddddddd아ㅣ너야헝ㄴ미헝ㄴ미ㅑㅓㅣㅇㄴ멋ㅇ니서ㅣㅇㄴ머ㅣㅓㅅㅇㄴㅁ
+            ㄴ이성ㄴ미서ㅣㅇㄴㅁ성ㄴ미서ㅣㅇㄴㅁ서ㅣㅇㄴㅁ성ㄴ미성ㄴ미ㅑ성ㄴ미사ㅓㅇ니야너리ㅏㄴㅁ얼ㅇㄴ미ㅑㅇ헝니ㅏ머싱ㄴ먀ㅓㅅㅇㄴ마렁ㄴ미ㅑ헌미ㅏ헝ㄴ미ㅏ서니ㅑㅁ성ㄴ미성니ㅏㅇ너링너항ㄴ머싱ㄴ먀성ㄴ마선미ㅑ런아ㅓ하님어시ㅑㅇㄴ머시바저싱냐ㅓㅎ사잇뱌어사니ㅓㅅ민야ㅓ하ㅣㄴ엇비ㅑㄴ어싱ㄴ머시ㅏㅇ너십냐ㅓ사어시ㅏ너시ㅏㅂ너ㅣ
+        </div>
+        <!--
+            .table : 표에 적용된 line표시
+            .table table-striped : 줄단위 배경색(기본회색)
+            .table table-bordered : 표에 선을 표시한다.
+            .table table-hover : 마우스 오버 아웃시 배경색 변경
+            .table table-dark : 폭의 배경을 블랙으로 
+        -->
+        <table class="table table-dark table-hover">
+            <tr>
+                <td>번호</td>
+                <td>이름</td>
+                <td>연락처</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>홍길동1</td>
+                <td>010-7777-1111</td>
+            </tr>
+            <tr>
+                <td>200</td>
+                <td>홍길동2</td>
+                <td>010-7777-2222</td>
+            </tr>
+            <tr>
+                <td>300</td>
+                <td>홍길동3</td>
+                <td>010-7777-3333</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>홍길동4</td>
+                <td>010-7777-4444</td>
+            </tr>
+            <tr>
+                <td>500</td>
+                <td>홍길동5</td>
+                <td>010-7777-5555</td>
+            </tr>
+            <tr>
+                <td colspan="3">문의사항은 02-1234-5678로 연락바랍니다.</td>
+            </tr>
+        </table>
+        <!--
+            테이블에 배경색 설정하기
+            .table-primary : blue색
+            .table-success : green색
+            .table-danger : red색
+            .table-info : blue색
+            .table-warning : yellow색
+            .table-active : gray색
+            .table-secondary : gary색
+        -->
+        <table class="table">
+            <tr class="table-primary">
+                <td>번호</td>
+                <td>이름</td>
+                <td>연락처</td>
+            </tr>
+            <tr class="table-success">
+                <td>100</td>
+                <td>홍길동1</td>
+                <td>010-7777-1111</td>
+            </tr>
+            <tr class="table-danger">
+                <td>200</td>
+                <td>홍길동2</td>
+                <td>010-7777-2222</td>
+            </tr>
+            <tr class="table-info">
+                <td>300</td>
+                <td>홍길동3</td>
+                <td>010-7777-3333</td>
+            </tr>
+            <tr class="table-warning">
+                <td>400</td>
+                <td>홍길동4</td>
+                <td>010-7777-4444</td>
+            </tr>
+            <tr class="table-active">
+                <td>500</td>
+                <td>홍길동5</td>
+                <td>010-7777-5555</td>
+            </tr>
+            <tr class="table-secondary">
+                <td colspan="3">문의사항은 02-1234-5678로 연락바랍니다.</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

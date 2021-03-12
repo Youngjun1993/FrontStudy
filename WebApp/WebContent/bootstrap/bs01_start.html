@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--    
+        getbootstrap.com에서 다운로드
+            
+        [링크순서]
+        1. viewport설정(meta태그)
+        2. bootstrap 스타일시트
+        3. jquery 스크립트
+        4. bootstrap 스크립트 
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="lib/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <style>
+        /*bootstrap의 container클래스를 다시 설정(오버라이딩)*/
+        .container{
+            background: pink;
+        }
+        .container-fluid{
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+   <!--
+       .container : 반응형 폭 설정
+       .container-fluid : 폭을 100%;
+   -->
+    <div class="container">
+        <img src="../img/img1.jpg" width="100%" alt=""/>
+    </div>
+    <div class="container-fluid">
+        <img src="../img/img1.jpg" width="100%" alt=""/>
+    </div>
+</body>
+</html>
