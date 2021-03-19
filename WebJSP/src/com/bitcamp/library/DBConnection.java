@@ -13,6 +13,7 @@ public class DBConnection {
 			System.out.println("드라이브로딩 에러..."+e.getMessage());
 		}
 	}
+	
 	protected Connection conn = null;
 	protected PreparedStatement pstmt = null;
 	protected ResultSet rs = null;

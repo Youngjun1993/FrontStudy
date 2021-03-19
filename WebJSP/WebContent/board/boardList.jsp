@@ -50,14 +50,12 @@
 	<%
 		//총레코드수 (BoardDAO.java)
 		BoardDAO dao = new BoardDAO();
-		
+	
 		//검색어
 		String searchKey = request.getParameter("searchKey");
 		String searchWord = request.getParameter("searchWord");
 		
 		System.out.println("searchKey="+searchKey + ", searchWord="+ searchWord);
-		
-		
 		
 		int totalRecord = dao.totalRecord(searchKey, searchWord); // 총레코드수
 		int onePageRecord = 5; //한페이지당 출력할 레코드수
