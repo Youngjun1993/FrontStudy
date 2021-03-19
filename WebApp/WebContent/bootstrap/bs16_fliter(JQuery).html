@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="lib/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="lib/bootstrap.js"></script>
+    <script>
+        $(function(){
+            $("#myInput").keyup(function(){
+                var value = $(this).val().toLowerCase();; //검색어로 입력한 문자열 $("#myInput").val()
+                
+                $("#memList>tr").filter(function(){
+                    var idx = $(this).text().indexOf(value); //0~n   -1
+                    //          true:그냥둠, false:숨김
+                    $(this).toggle(idx>-1);
+                });
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container"></div>
+    <h1>Filter Test...</h1>
+    <input type="text" id="myInput" placeholder="Search....."/>
+    <hr>
+    <table class="table table-hover">
+        <theader>
+            <tr>
+                <td>이름</td>
+                <td>아이디</td>
+                <td>연락처</td>
+                <td>주소</td>
+            </tr>
+        </theader>
+        <tbody id="memList">
+            <tr>
+                <td>홍길동</td>
+                <td>hong gil dong</td>
+                <td>010-1234-5678</td>
+                <td>서울시 중구</td>
+            </tr>
+            <tr>
+                <td>김땡땡</td>
+                <td>kim DD</td>
+                <td>010-0000-1234</td>
+                <td>서울시 마포구</td>
+            </tr>
+            <tr>
+                <td>이땡땡</td>
+                <td>Lee DD</td>
+                <td>010-0000-3333</td>
+                <td>고양시 일산동구</td>
+            </tr>
+            <tr>
+                <td>박땡땡</td>
+                <td>park DD</td>
+                <td>010-1587-6464</td>
+                <td>고양시 일산서구</td>
+            </tr>
+            <tr>
+                <td>허거거거어억2</td>
+                <td>허걱2</td>
+                <td>010-6262-5235</td>
+                <td>주소는 어딜까</td>
+            </tr>
+            <tr>
+                <td>뿌엥</td>
+                <td>뿌엥</td>
+                <td>010-777-8888</td>
+                <td>경기도 탄현</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

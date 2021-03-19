@@ -1,0 +1,18 @@
+{
+    "rank" : [
+        {"username" : "손흥민", "local" : "영국"},
+        {"username" : "김연아", "local" : "대한민국"},
+        {"username" : "박항서", "local" : "베트남"},
+        {"username" : "추신수", "local" : "일본"},
+        {"username" : "박태환", "local" : "대한민국"},
+        {"username" : "현정화", "local" : "대한민국"},
+        {"username" : "가나다", "local" : "가나"},
+        {"username" : "라마바", "local" : "미국"},
+        {"username" : "사아자", "local" : "태국"},
+        {"username" : "차카타", "local" : "일본"},
+        {"username" : "파하기", "local": "브라질"},
+        {"username" : "니디리", "local" : "베트남"},
+        {"username" : "미비시", "local": "나이지리아"},
+        {"username" : "이지치", "local" : "방글라데시"}
+    ]
+}

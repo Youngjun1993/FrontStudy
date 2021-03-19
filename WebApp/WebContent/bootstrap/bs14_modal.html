@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="lib/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="lib/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="../img/img1.jpg" alt="" data-target="#md" data-toggle="modal"/>
+        <img src="../img/img1.jpg" alt="" />
+        <img src="../img/img1.jpg" alt="" />
+        <img src="../img/img1.jpg" alt="" />
+        <img src="../img/img1.jpg" alt="" />
+        <img src="../img/img1.jpg" alt="" />
+        <img src="../img/img1.jpg" alt="" />
+        <img src="../img/img1.jpg" alt="" />
+        
+        <!-- 모달창 컨텐츠 -->
+        <div class="modal" id="md">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">모달 제목</h4>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Content -->
+                    <div class="modal-body">
+                        <h3>모달내용</h3>
+                        <img src="../img/img2.jpg" width="100%" height="500" alt="" />
+                    </div>
+                    <!-- Footer -->
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-secondary">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

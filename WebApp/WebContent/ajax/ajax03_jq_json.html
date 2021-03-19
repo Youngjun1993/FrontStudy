@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <style>
+        #result{
+            border: 1px solid gray;
+            background: #eee;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("button") .on("click", function(){
+                $.ajax({
+                    url : 'ajax_data.json',//서버에서 전송받을 파일명을
+                    dataType : 'json',//전송받을 데이터의 데이터 타입
+                    success : function(result){//서버에서 정상 전송을 받은 경우 호출되는 함수
+                        var tag = "<table class= 'table'>";
+                        
+                        //    반복할 객체
+                        $.each(result.rank, function(idx, data){
+                            tag += "<tr><td>"+data['username']+"</td>"; //[]로 불러오나 아래처럼 .으로 불러오나 똑같다??
+                            tag += "<td>"+data.local+"</td></tr>";
+                        });
+                        tag += "</table>"
+                        //html()
+                        //append()
+                        $("#result").append(tag);
+                    },
+                    error:function(){
+                        console.log("전송실패..");
+                        console.log("code="+request.code);
+                        console.log("message="+request.responseText);
+                        console.log("stastu="+status);
+                        console.log("error="+error);
+                    }
+                    
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>json데이터를 ajax로 가져오기</h1>
+        <button>클릭하세요</button>
+        <div id="result"></div>
+        <img src="../img/img1.jpg" alt="">
+    </div>
+</body>
+</html>
