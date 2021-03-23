@@ -38,6 +38,22 @@
 		int day = now.get(Calendar.DAY_OF_MONTH);	//일
 	%>
 	<h1>오늘은<%=year %>년 <%=month %>월 <%=day %>일입니다.</h1>
+	<hr/>
+	<h1>jstl태그</h1>
+	<!--
+		http://archive.apache.org/dist/jakarta/taglibs/standard/에서 jakarta-taglibs-standard-1.1.2.zip를 다운로드 후
+		
+		현재 프로젝트의 WEB-INF/lib에 jstl.jar, standard.jar를 복사한다.
+	 -->
+	<ol>
+		<li><a href="jstl/jstl01_setTag.jsp">set Tag : 변수의 선언 및 삭제</a></li>
+		<li><a href="jstl/jstl02_ifTag.jsp?name=이순신&age=28">if Tag : 조건문</a></li>
+		<li><a href="jstl/jstl03_forEachTag.jsp">forEach Tag : 반복문</a></li>
+		<li><a href="jstl/jstl04_forTokensTag.jsp">forTokens Tag : 문자열 조각내기</a></li>
+		<li><a href="jstl/jstl05_urlTag.jsp">url Tag : 문자열 조각내기</a></li>
+		<li><a href="jstl/jstl06_chooseTag.jsp?username=홍길동&age=25">choose Tag : if~else, switch</a></li>
+		<li><a href="jstl/jstl07_redirectTag.jsp">redirect Tag</a></li>
+	</ol>
 	<!-- JSP코드는 %로 묶어서 실행하고 해당 영역은 자바영역이 된다. -->
 	<%	
 		// 이와같이 html에 java를 추가해서 사용하는 공간을 스크립트릿 이라고 한다.

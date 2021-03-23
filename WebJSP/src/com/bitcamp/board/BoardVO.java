@@ -8,7 +8,13 @@ public class BoardVO {
 	private int hit;
 	private String writedate;
 	private String ip;
-	
+	///////////////////////////
+	public BoardVO() {}
+	public BoardVO(int no, String subject) {
+		this.no = no;
+		this.subject = subject;
+	}
+	///////////////////////////
 	public int getNo() {
 		return no;
 	}

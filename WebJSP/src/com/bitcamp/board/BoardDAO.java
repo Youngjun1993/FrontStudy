@@ -117,12 +117,14 @@ public class BoardDAO extends DBConnection{
 		}
 		return boardList;
 	}
-	//레코드 1개 선택, 조회수 증가
-	public BoardVO getOneSelect(int no) {
+	//레코드 1개 선택, 조회수 증가 : 글내용(1), 글수정(2)
+	public BoardVO getOneSelect(int no, int p) {
 		BoardVO vo = new BoardVO();
 		try {
-			//조회수 증가
-			hitCount(no);
+			if(p==1) {//p가 1일때만 조회수를 카운트한다.
+				//조회수 증가
+				hitCount(no);
+			}
 			//레코드 선택
 			connection();
 			sql = "select no, subject, content, userid, hit, writedate from board"
@@ -159,5 +161,44 @@ public class BoardDAO extends DBConnection{
 		}finally {
 			closeDB();
 		}
+	}
+	//글수정
+	public int boardEditOk(BoardVO vo) { //글번호, 제목, 내용, 글쓴이(id)
+		int result=0;
+		try {
+			connection();
+			sql = "update board set subject=?, content=? where no=? and userid=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getSubject());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setInt(3, vo.getNo());
+			pstmt.setString(4, vo.getUserid());
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			System.out.println("게시판 수정에러 발생-->"+e.getMessage());
+		}finally {
+			closeDB();
+		}
+		return result;
+	}
+	//글삭제
+	public int deleteRecord(int no, String userid) {
+		int result = 0;
+		try {
+			connection();
+			sql = "delete from board where no=? and userid=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.setString(2, userid);
+			result = pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("게시판 레코드 삭제 에러--->"+e.getMessage());
+		}finally {
+			closeDB();
+		}
+		return result;
 	}
 }
