@@ -16,7 +16,7 @@ public class PageSearchVO {
 	// 마지막 페이지의 남은 레코드 수
 	private int lastPageRecord;
 	// 검색키
-	private String serachKey;
+	private String searchKey;
 	// 검색어
 	private String searchWord;
 
@@ -74,11 +74,11 @@ public class PageSearchVO {
 	public void setLastPageRecord(int lastPageRecord) {
 		this.lastPageRecord = lastPageRecord;
 	}
-	public String getSerachKey() {
-		return serachKey;
+	public String getSearchKey() {
+		return searchKey;
 	}
-	public void setSerachKey(String serachKey) {
-		this.serachKey = serachKey;
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
 	}
 	public String getSearchWord() {
 		return searchWord;

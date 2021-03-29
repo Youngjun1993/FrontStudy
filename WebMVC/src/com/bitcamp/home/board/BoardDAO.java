@@ -45,7 +45,7 @@ public class BoardDAO extends DBCPconn implements CommandService, BoardDAOServic
 			
 			sql = "select count(no) from board";
 			if(vo.getSearchWord() != null) {
-				sql += " where "+vo.getSerachKey()+" like ?";
+				sql += " where "+vo.getSearchKey()+" like ?";
 			}
 			
 			pstmt = con.prepareStatement(sql);
@@ -82,7 +82,7 @@ public class BoardDAO extends DBCPconn implements CommandService, BoardDAOServic
 			sql = "select * from (select * from (select no, subject, userid, hit, to_char(writedate, 'yy-mm-dd hh:mi') as writedate from board ";
 			// 검색어가 있을경우 조건절 추가	
 			if (vo.getSearchWord() != null) { 
-				sql += " where "+vo.getSerachKey()+" like ?";
+				sql += " where "+vo.getSearchKey()+" like ?";
 			}
 			
 			sql += " order by no desc) where rownum<=? order by no asc) where rownum<=? order by no desc";

@@ -12,7 +12,7 @@
 	}
 	
 	/*페이지*/
-	#page{overflow: auto;}
+	#page{overflow: auto; clear: left;}
 	#page>li{
 		float: left; width: 50px; height: 50px; line-height: 50px; text-align: center; border: 1px solid #ddd;
 		margin: 5px 15px;
@@ -47,21 +47,21 @@
 				<c:forEach var="p" begin="${pageVO.startPageNum}" step="1" end="${pageVO.startPageNum + pageVO.onePageNum-1}">
 					<c:if test="${p<=pageVO.totalPage}">
 						<c:if test="${p==pageVO.pageNum }"> <!-- 현재페이지일때 실행 -->
-							<li style="color:red"><a href="<%=request.getContextPath()%>/board/list.do?pageNum=${p}<c:if test="${pageVO.searchWord != null && pageVO.searchWord != ''}">&searchKey=${pageVO.searchKey}&searchWord=${pageVO.searchWord}</c:if>">${p}</a></li>
+							<li style="background:pink"><a href="<%=request.getContextPath()%>/board/list.do?pageNum=${p}<c:if test="${pageVO.searchWord != null && pageVO.searchWord != ''}">&searchKey=${pageVO.searchKey}&searchWord=${pageVO.searchWord}</c:if>">${p}</a></li>
 						</c:if>	
 						<c:if test="${p!=pageVO.pageNum}"> <!-- 현재페이지가 아닐때 실행 -->
 							<li><a href="<%=request.getContextPath()%>/board/list.do?pageNum=${p}">${p}</a></li>
 						</c:if>
 					</c:if>
 				</c:forEach>
-				<c:if test="${pageVO.pageNum < pageVO.totalPage} }">
+				<c:if test="${pageVO.pageNum < pageVO.totalPage}">
 					<li><a href="<%=request.getContextPath()%>/board/list.do?pageNum=${pageVO.pageNum+1}<c:if test="${pageVO.searchWord != null && pageVO.searchWord != ''}">&searchKey=${pageVO.searchKey}&searchWord=${pageVO.searchWord}</c:if>">다음</a></li>
 				</c:if>
 			</ul>
 		</div>
 		<div>
-			<form method="get" action="<%=request.getContextPath()%>/">
-				<select name="searchKey">
+			<form method="get" action="<%=request.getContextPath()%>/board/list.do">
+				<select name="searchKey" id="searchKey">
 					<option value="subject">제목</option>
 					<option value="userid">글쓴이</option>
 					<option value="content">글내용</option>
