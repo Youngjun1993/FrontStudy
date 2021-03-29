@@ -11,7 +11,7 @@ import com.bitcamp.home.CommandService;
 public class MemberOkCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		// 뷰에서 정보를 서버로 가져오기
 		req.setCharacterEncoding("UTF-8");

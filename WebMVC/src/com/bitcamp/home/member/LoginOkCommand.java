@@ -12,7 +12,7 @@ import com.bitcamp.home.CommandService;
 public class LoginOkCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		MemberVO vo = new MemberVO();
 		vo.setUserid(req.getParameter("userid"));

@@ -12,7 +12,7 @@ import com.bitcamp.home.CommandService;
 public class MemberEditCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		
 		MemberVO vo = new MemberVO();

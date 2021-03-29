@@ -7,6 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface CommandService {
-	//		viewfile명 리턴						클라이언트					서버에서 클라이언트로 보내기
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException;
+	// viewFile명 리턴				클라이언트->서버			서버->클라이언트
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException;
 }

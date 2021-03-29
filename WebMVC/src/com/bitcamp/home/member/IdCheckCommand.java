@@ -11,7 +11,7 @@ import com.bitcamp.home.CommandService;
 public class IdCheckCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//DB조회 : id가 있는지 없는지 결과를 가지고 뷰로 간다.
 		String userid = req.getParameter("userid");
 		

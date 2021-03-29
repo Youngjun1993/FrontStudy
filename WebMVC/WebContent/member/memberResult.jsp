@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:if test="${result==1}">
-	<!-- 가입시 -->
+<%
+	/*가져온 cnt가 1일때, 로그인으로 보낸다.
+	가져온 cnt가 0일때 로그인실패 알림, 이전페이지로 돌아감*/
+%>
+
+<c:if test="${result==1 }">
 	<script>
-		location.href = "<%=request.getContextPath()%>/member/login.do";
+		location.href="<%=request.getContextPath()%>/member/login.do";
 	</script>
 </c:if>
-<c:if test="${result==0}">
-	<!-- 가입실패시 -->
+<c:if test="${result==0 }">
 	<script>
 		alert("로그인 실패하였습니다.");
-		history.back(); <!-- 이와 같이 보내야 폼에 입력했던 값들이 그대로 남아있게 된다. -->
+		history.back();
 	</script>
 </c:if>

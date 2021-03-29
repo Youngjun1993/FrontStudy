@@ -12,7 +12,7 @@ import com.bitcamp.home.CommandService;
 public class LogoutCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		//로그아웃
 		HttpSession ses = req.getSession(); //현재 세션을 가져온다.
 		System.out.println("sesId="+ses.getId());

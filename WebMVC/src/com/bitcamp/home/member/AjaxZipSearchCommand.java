@@ -12,7 +12,7 @@ import com.bitcamp.home.CommandService;
 public class AjaxZipSearchCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		String doro = req.getParameter("doro");
 		//DB검색

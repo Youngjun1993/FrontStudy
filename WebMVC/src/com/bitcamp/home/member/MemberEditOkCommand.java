@@ -12,7 +12,7 @@ import com.bitcamp.home.CommandService;
 public class MemberEditOkCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		//폼의 회원정보 request
 		MemberVO vo = new MemberVO();

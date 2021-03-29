@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class IndexCommand implements CommandService {
 
-	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	// CommandService overriding
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
-		return "index.jsp";
+		return "index.jsp"; // 홈으로 보내기
 	}
 
 }

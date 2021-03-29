@@ -11,7 +11,7 @@ import com.bitcamp.home.CommandService;
 public class LoginCommand implements CommandService {
 
 	@Override
-	public String processStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		return "/member/login.jsp";
 	}
 
