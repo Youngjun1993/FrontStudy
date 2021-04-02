@@ -5,6 +5,7 @@ import java.util.List;
 public interface BoardDAOService {
 	// 레코드 추가 (글쓰기)
 	public int oneRecordInsert (BoardVO vo);
+	
 	// 레코드 선택 (1개선택, 글 내용 보여주기 / 수정폼에서도 이걸로 쓰자~)
 	public void oneRecordSelect(BoardVO vo);
 		/* 반환형 BoardVO로 써도 됨! 매개변수 vo에 setting 하려고
@@ -24,4 +25,7 @@ public interface BoardDAOService {
 	
 	// 레코드선택(1page)
 	public List<BoardVO> onePageRecordSelect(PageSearchVO vo);
+	
+	// 글쓴이 선택
+	public String getUserid(int no);
 }

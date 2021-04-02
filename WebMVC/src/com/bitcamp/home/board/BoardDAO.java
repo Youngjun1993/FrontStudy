@@ -15,25 +15,94 @@ public class BoardDAO extends DBCPconn implements CommandService, BoardDAOServic
 
 	@Override
 	public int oneRecordInsert(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		try {
+			getConn();
+			sql ="insert into board(no, subject, content, userid, hit, writedate, ip) values(boardsq.nextval, ?, ?, ?, 0, sysdate, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getSubject());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setString(3, vo.getUserid());
+			pstmt.setString(4, vo.getIp());
+			
+			result = pstmt.executeUpdate();
+			System.out.println("insert dao 실행됨");
+		}catch(Exception e) {
+			System.out.println("글쓰기 에러!!!!");
+			e.printStackTrace();
+		}finally{
+			getClose();
+		}
+		
+		return result;
 	}
 
 	@Override
 	public void oneRecordSelect(BoardVO vo) {
-		// TODO Auto-generated method stub
+		try {
+			getConn();
+			
+			sql = "select no, subject, content, userid, writedate, hit from board where no=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, vo.getNo());
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setNo(rs.getInt(1));
+				vo.setSubject(rs.getString(2));
+				vo.setContent(rs.getString(3));
+				vo.setUserid(rs.getString(4));
+				vo.setWritedate(rs.getString(5));
+				vo.setHit(rs.getInt(6));
+			}
+			
+		}catch(Exception e) {
+			System.out.println("레코드 선택에러...(1record)");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
 
 	}
 
 	@Override
 	public int deleteRecord(int no, String userid) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		try {
+			getConn();
+			
+			sql = "delete from board where no=? and userid=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.setString(2, userid);
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			System.out.println("게시글 삭제 오류!!!");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		return result;
 	}
 
 	@Override
 	public void hitCount(int no) {
-		// TODO Auto-generated method stub
+		try {
+			getConn();
+			
+			sql = "update board set hit=hit+1 where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("조회수증가 에러...");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
 
 	}
 
@@ -69,8 +138,26 @@ public class BoardDAO extends DBCPconn implements CommandService, BoardDAOServic
 
 	@Override
 	public int boardUpdate(BoardVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		try {
+			getConn();
+			
+			sql = "update board set subject=?, content=? where no=? and userid=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getSubject());
+			pstmt.setString(2, vo.getContent());
+			pstmt.setInt(3, vo.getNo());
+			pstmt.setString(4, vo.getUserid());
+			
+			result = pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			System.out.println("게시판 글수정 에러...");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		return result;
 	}
 
 	@Override
@@ -124,6 +211,27 @@ public class BoardDAO extends DBCPconn implements CommandService, BoardDAOServic
 	public String precessStart(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String getUserid(int no) {
+		String userid = "";
+		try {
+			getConn();
+			sql = "select userid from board where no=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				userid=rs.getString(1);
+			}
+		}catch(Exception e) {
+			System.out.println("아이디 선택에러");
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		return userid;
 	}
 
 }

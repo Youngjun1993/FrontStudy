@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/*.do")
 public class ControllerAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	// 매핑주소와 실행할 Command 객체를 보관할 맵
 	HashMap<String, CommandService> map = new HashMap<String, CommandService>();
        

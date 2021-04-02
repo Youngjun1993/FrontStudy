@@ -13,7 +13,7 @@
 	ul, li {margin: 0; padding: 0; list-style-type: none; }
 	#menu {background-color: pink; overflow: auto; }
 	#menu>li {
-		float:left; height: 80px; line-height: 80px; width: 20%;
+		float:left; height: 80px; line-height: 80px; width: 15%;
 		text-align: center;
 	}
 </style>
@@ -34,5 +34,6 @@
 		<li><a href="<%=request.getContextPath()%>/member/memberEdit.do">회원정보수정</a></li>
 		</c:if>
 		<li><a href="<%=request.getContextPath()%>/board/list.do">게시판</a></li>
-		<li><a href="#">자료실</a></li>
+		<li><a href="<%=request.getContextPath()%>/data/dataList.do">자료실</a></li>
+		<li><a href="<%=request.getContextPath()%>/data/multiUploadForm.do">다중업로드</a></li>
 	</ul>
