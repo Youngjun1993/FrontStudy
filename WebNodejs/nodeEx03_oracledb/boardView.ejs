@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글 내용 보기</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<style>
+   ul, li {
+      margin:0; padding:0; list-style-type:none;
+   }
+   li {
+      border-bottom: 1px solid #eee; height: 40px; line-height: 40px;
+   }
+   li:last-child {
+      height: 100px; border-bottom: none;
+   }
+   
+</style>
+<script>
+	function delCheck(no){
+		if(confirm("삭제할까요?")){
+			location.href="/boardDel?no="+no;
+		}
+	}
+</script>
+</head>
+<body>
+   <div class="container">
+      <h1>글내용보기</h1>
+      <a href="/home">홈으로</a> | <a href="/list">목록으로</a>
+      <ul>
+         <li>번호 : <%=records.rows[0][0]%></li>
+         <li>작성자 : <%=records.rows[0][1]%></li>
+         <li>등록일 : <%=records.rows[0][5]%></li>
+         <li>조회수 : <%=records.rows[0][4]%></li>
+         <li>제목 : <%=records.rows[0][2]%></li>
+         <li><%=records.rows[0][3]%></li>
+      </ul>
+      <hr/>
+      <%if(userid==records.rows[0][1]){%>
+  		<a href="/boardEdit?no=<%=records.rows[0][0]%>">수정</a> 
+  		<a href="javascript:delCheck(<%=records.rows[0][0]%>)">삭제</a>
+	  <%}%>
+   </div>
+</body>
+</html>

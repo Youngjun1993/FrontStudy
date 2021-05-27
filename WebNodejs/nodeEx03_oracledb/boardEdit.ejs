@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</head>
+<body>
+   <div class="container">
+      <h1>글 수정하기</h1>
+      <a href="/home">홈</a>
+      <form method="post" action="/writeOk">
+         <input type="hidden" name="no" value="<%=records.rows[0][0]%>"/>
+          작성자 : <input type="text" name="userid" value="<%=records.rows[0][3]%>" disabled/><br/>
+         제목 : <input type="text" name="subject" value="<%=records.rows[0][1]%>"/> <br/>
+         글내용 : <textarea name="content" cols="60" rows="5"><%=records.rows[0][2]%></textarea><br/>
+         <input type="submit" value="글수정"/>
+      </form>
+   </div>
+</body>
+</html>

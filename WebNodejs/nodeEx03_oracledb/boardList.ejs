@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<style>
+   ul, li{margin:0; padding:0; list-style:none;}
+   #boardList li{width:10%; height:40px; line-height:40px; border-bottom:1px solid gray; float:left;}
+   #boardList li:nth-child(5n+2){width:60%;}
+</style>
+</head>
+<body>
+   <div class="container">
+      <h1>게시판 리스트</h1>
+      <a href="/home">홈으로</a><br/>
+      <%if(logStatus=='Y'){%>
+      	<a href="/boardWrite">글쓰기</a><br/>
+      <%}%>
+      총레코드 수 : <%=totalrecord%>
+      <ul id="boardList">
+         <li>번호</li>
+         <li>제목</li>
+         <li>작성자</li>
+         <li>조회수</li>
+         <li>등록일</li>
+         
+         <% for(var i=0; i<results.rows.length; i++){%>
+            <li><%=results.rows[i][0]%></li>
+            <li><a href="/boardView?no=<%=results.rows[i][0]%>"><%=results.rows[i][1]%></a></li>
+            <li><%=results.rows[i][2]%></li>
+            <li><%=results.rows[i][3]%></li>
+            <li><%=results.rows[i][4]%></li>
+        <%}%>
+      </ul>
+     <div>
+        <% if(parsing.currentPage>1){%>
+           <a href="/list?currentPage=<%=parsing.currentPage-1%>">이전</a>
+        <%}%>
+        <% for(var p=parsing.firstPage; p<=parsing.lastPage; p++){%>
+              <a href="/list?currentPage=<%=p%>"><%=p%></a>
+        <%}%>
+        <!--다음페이지 -->
+        <% if(parsing.totalPage>parsing.currentPage){%>
+           <a href="/list?currentPage=<%=parsing.currentPage+1%>">다음</a>
+        <%}%>
+     </div>
+     
+   </div>
+</body>
+</html>

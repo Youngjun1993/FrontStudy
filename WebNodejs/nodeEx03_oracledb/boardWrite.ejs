@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>글쓰기</h1>
+		<form action="/writeOk" method="post">
+			작성자 : <input type="text" name="userid" value="<%=userid%>" disabled/><br/>
+			제목 : <input type="text" name="subject" /><br/>
+			글내용 : <textarea rows="10" cols="50" name="content"></textarea><br/>
+			<input type="submit" value="글등록" />
+		</form>
+	</div>
+</body>
+</html>
